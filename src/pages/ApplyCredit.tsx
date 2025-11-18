@@ -180,7 +180,7 @@ export default function ApplyCredit() {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <Label htmlFor="ingresoMensual">Ingreso Mensual (Gs.) *</Label>
+                  <Label htmlFor="ingresoMensual" >Ingreso Mensual (Gs.) *</Label>
                   <Input
                     id="ingresoMensual"
                     name="ingresoMensual"
@@ -188,6 +188,7 @@ export default function ApplyCredit() {
                     value={formData.ingresoMensual}
                     onChange={handleInputChange}
                     required
+                    placeholder="Ingrese sin puntos Ej: 123456"
                   />
                 </div>
 
@@ -200,6 +201,7 @@ export default function ApplyCredit() {
                     value={formData.gastosMensuales}
                     onChange={handleInputChange}
                     required
+                     placeholder="Ingrese sin puntos Ej: 123456"
                   />
                 </div>
               </div>
@@ -214,6 +216,7 @@ export default function ApplyCredit() {
                     value={formData.montoCredito}
                     onChange={handleInputChange}
                     required
+                     placeholder="Ingrese sin puntos Ej: 123456"
                   />
                 </div>
 
@@ -244,6 +247,7 @@ export default function ApplyCredit() {
                     value={formData.gastosFamiliaresAproximado}
                     onChange={handleInputChange}
                     required
+                     placeholder="Ingrese sin puntos Ej: 123456"
                   />
                 </div>
 
@@ -256,23 +260,25 @@ export default function ApplyCredit() {
                     value={formData.gastosEnergia}
                     onChange={handleInputChange}
                     required
+                     placeholder="Ingrese sin puntos Ej: 123456"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="gastosAlquiler">Gastos en Alquiler (Gs.)</Label>
+                  <Label htmlFor="gastosAlquiler">Gastos en Alquiler (0 si no tiene)</Label>
                   <Input
                     id="gastosAlquiler"
                     name="gastosAlquiler"
                     type="number"
                     value={formData.gastosAlquiler}
                     onChange={handleInputChange}
-                    placeholder="0 si no tiene"
+                    placeholder="Ingrese sin puntos Ej: 123456"
+                    
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="gastosCombustible">Gastos en Combustible (Gs.)</Label>
+                  <Label htmlFor="gastosCombustible">Gastos en Combustible (0 Si no tiene)</Label>
                   <Input
                     id="gastosCombustible"
                     name="gastosCombustible"
@@ -284,7 +290,7 @@ export default function ApplyCredit() {
                 </div>
 
                 <div>
-                  <Label htmlFor="gastosInternet">Gastos en Internet (Gs.) *</Label>
+                  <Label htmlFor="gastosInternet">Gastos en Internet (0 si no tiene) *</Label>
                   <Input
                     id="gastosInternet"
                     name="gastosInternet"
