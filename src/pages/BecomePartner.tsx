@@ -134,7 +134,9 @@ const BecomePartner = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="container mx-auto px-4 py-8 max-w-2xl">
-        <h1 className="text-4xl font-bold mb-2 text-center">Quiero ser Socio</h1>
+        <br />
+        <br />
+        <h1 className="text-4xl font-bold mb-2 text-center text-green-400">Quiero ser Socio</h1>
         <p className="text-muted-foreground text-center mb-8">
           Complete el siguiente formulario para solicitar ser socio
         </p>
