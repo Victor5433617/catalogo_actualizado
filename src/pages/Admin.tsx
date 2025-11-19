@@ -222,6 +222,35 @@ const Admin = () => {
     }
   };
 
+  const updateCreditApplicationStatus = async (id: string, status: 'approved' | 'rejected') => {
+    try {
+      const { error } = await supabase
+        .from("credit_applications")
+        .update({ status })
+        .eq("id", id);
+
+      if (error) throw error;
+
+      toast({
+        title: "Éxito",
+        description: `Solicitud ${status === 'approved' ? 'aprobada' : 'rechazada'} correctamente`,
+      });
+
+      // Actualizar la lista y el estado del dialogo
+      await fetchCreditApplications();
+      if (selectedCreditApp) {
+        setSelectedCreditApp({ ...selectedCreditApp, status });
+      }
+    } catch (error: any) {
+      console.error("Error updating credit application status:", error);
+      toast({
+        title: "Error",
+        description: "No se pudo actualizar el estado de la solicitud",
+        variant: "destructive",
+      });
+    }
+  };
+
   const handleSignOut = async () => {
     await supabase.auth.signOut();
     navigate("/auth");
@@ -1100,6 +1129,22 @@ const Admin = () => {
                   <Label>Fecha de Solicitud</Label>
                   <p className="text-sm font-medium mt-1">{new Date(selectedCreditApp.created_at).toLocaleString()}</p>
                 </div>
+
+                {selectedCreditApp.status === 'pending' && (
+                  <div className="border-t pt-4 flex gap-4 justify-end">
+                    <Button
+                      variant="destructive"
+                      onClick={() => updateCreditApplicationStatus(selectedCreditApp.id, 'rejected')}
+                    >
+                      Rechazar
+                    </Button>
+                    <Button
+                      onClick={() => updateCreditApplicationStatus(selectedCreditApp.id, 'approved')}
+                    >
+                      Aprobar
+                    </Button>
+                  </div>
+                )}
               </div>
             )}
           </DialogContent>
